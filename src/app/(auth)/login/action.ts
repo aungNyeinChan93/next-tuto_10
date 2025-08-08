@@ -1,9 +1,8 @@
 'use server'
 import { z } from 'zod'
-// import { redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function createAccount(initialState: any, formData: FormData) {
+export async function createAccount(prevState: { email: string, password: string }, formData: FormData) {
     const email = formData.get("email");
     const password = formData.get("password");
 
@@ -18,14 +17,14 @@ export async function createAccount(initialState: any, formData: FormData) {
 
     if (!validateUser.success) {
         console.error(validateUser.error.format())
-        return { error: 'crendial Error' };
+        return { error: 'credential Error' };
     } else {
-        return { success: "Account created successfully!" };
+        return redirect('/')
+        // return { success: "Account created successfully!", prevState };
     }
 
 
     // ... logic to save the user ...
     // console.log({ email, password, initialState });
-    // return redirect('/')
 
 }
