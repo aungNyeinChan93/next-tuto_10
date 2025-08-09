@@ -1,3 +1,4 @@
+import Search from "@/components/share/Search";
 import Link from "next/link";
 import React from "react";
 
@@ -6,6 +7,9 @@ const HomePage = async () => {
     <React.Fragment>
       <main className="container mx-auto p-4 ">
         Home
+        <div className="p-9 text-center">
+          <Search />
+        </div>
         <Link
           className="px-4 py-2 ms-2 rounded-2xl bg-green-500 "
           href={{
