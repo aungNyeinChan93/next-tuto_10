@@ -1,8 +1,9 @@
 'use server'
+
 import { z } from 'zod'
 import { redirect } from "next/navigation";
 
-export async function createAccount(prevState: { email: string, password: string }, formData: FormData) {
+export async function login(prevState: { email: string, password: string }, formData: FormData) {
     const email = formData.get("email");
     const password = formData.get("password");
 

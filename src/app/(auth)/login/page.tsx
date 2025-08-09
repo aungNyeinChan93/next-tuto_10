@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useActionState } from "react";
-import { createAccount } from "./action";
+import { login } from "./action";
 
 const Login = () => {
-  const [state, formAction, pending] = useActionState(createAccount, {
+  const [state, formAction, pending] = useActionState(login, {
     email: "",
     password: "",
   });
@@ -35,7 +35,7 @@ const Login = () => {
                   />
                 </div>
                 <span className="text-base text-red-400 p-1">
-                  {state.error ? state.error : state.success}
+                  {state.error && state.error}
                 </span>
               </div>
               <div>
@@ -54,7 +54,7 @@ const Login = () => {
                   />
                 </div>
                 <span className="text-base text-red-400 p-1">
-                  {state.error ? state.error : state.success}
+                  {state.error && state.error}
                 </span>
               </div>
               <div>
